@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Gestionar Compras</title>
@@ -9,7 +9,7 @@
           th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-<div th:replace="cliente/utils/navbar :: navbar"></div>
+<div th:replace="general/utils/navbar :: navbar"></div>
 <div class="container">
     <br>
     <h2 th:if="${list.isEmpty()}">

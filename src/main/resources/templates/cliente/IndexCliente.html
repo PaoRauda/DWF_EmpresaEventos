@@ -10,7 +10,7 @@
           th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-<div th:replace="cliente/utils/navbar :: navbar"></div>
+<div th:replace="general/utils/navbar :: navbar"></div>
 <div class="container">
     <br>
     <h2 th:if="${list.isEmpty()}">No hay Eventos Disponibles</h2>
@@ -19,8 +19,8 @@
         <br>
         <span sec:authentication="name">Username</span>
         <span sec:authentication="principal.authorities">Roles</span>
-        <div sec:authorize="hasAuthority('ROLE_EMPLEADO')">
-            <a th:href="@{'/indexEmpleado'}">Acciones de Empleado</a>
+        <div sec:authorize="hasAnyAuthority('ROLE_EMPLEADO','ROLE_MANAGER')">
+            <a th:href="@{'/indexEmpleado'}">Acciones para Personal</a>
         </div>
         <div class="row">
             <div th:each="evento_boleteria : ${list}" class="col-md-4 mb-4">

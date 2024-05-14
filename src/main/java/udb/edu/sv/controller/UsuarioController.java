@@ -1,6 +1,7 @@
 package udb.edu.sv.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import udb.edu.sv.service.UsuarioService;
 import org.springframework.ui.Model;
 
 @Controller
+@PreAuthorize("hasAnyRole('EMPLEADO','MANAGER')")
 public class UsuarioController {
 
     @Autowired

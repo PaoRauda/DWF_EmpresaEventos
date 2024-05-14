@@ -36,15 +36,15 @@
                 <td th:text="${compra.getCantidad()}">
                 <td th:text="${compra.getPrecio_total()}">
                 <td th:text="${compra.getFecha_compra()}">
-                <td><a class="btn btn-info" th:href="@{/saveCompra/{id}(id=${compra.id})}">Editar</a></td>
-                <td><a class="btn btn-danger" th:href="@{/deleteCompra/{id}(id=${compra.id})}">Eliminar</a></td>
+                <td><a class="btn btn-info" th:href="@{saveCompra/{id}(id=${compra.id})}">Editar</a></td>
+                <td><a class="btn btn-danger" th:href="@{deleteCompra/{id}(id=${compra.id})}">Eliminar</a></td>
             </tr>
             </tbody>
         </table>
     </div>
     <br>
     <div>
-        <a href="/saveCompra/0" class="btn btn-primary">Agregar</a>
+        <a href="saveCompra/0" class="btn btn-primary">Agregar</a>
     </div>
 </div>
 </body>

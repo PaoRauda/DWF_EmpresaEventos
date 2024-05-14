@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Gestion</title>
@@ -8,8 +9,9 @@
           th:href="@{/css/bootstrap.css}">
 </head>
 <body>
+<div th:replace="general/utils/navbar :: navbar"></div>
 <div class="container">
-    <h1>Bienvenido</h1>
+    <h1>Acciones para Personal</h1>
     <a class="btn btn-info" th:href="@{/showCompra}">Gestionar Compras</a>
     <a class="btn btn-info" th:href="@{/showEvento}">Gestionar Eventos</a>
     <a class="btn btn-info" th:href="@{/showEvento_Boleteria}">Gestionar Boleteria</a>

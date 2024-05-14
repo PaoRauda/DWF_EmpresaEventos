@@ -1,6 +1,7 @@
 package udb.edu.sv.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import udb.edu.sv.service.EventoService;
 import udb.edu.sv.service.Evento_BoleteriaService;
 
 @Controller
+@PreAuthorize("hasAnyRole('EMPLEADO','MANAGER')")
 public class Evento_BoleteriaController {
     @Autowired
     private Evento_BoleteriaService eventoBoleteriaService;

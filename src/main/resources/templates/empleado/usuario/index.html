@@ -26,7 +26,6 @@
                 <th>Contraseña</th>
                 <th>Dirección</th>
                 <th>Telefono</th>
-                <th>Rol</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -39,7 +38,6 @@
                 <td th:text="${usuario.getPassword()}">
                 <td th:text="${usuario.getDireccion()}">
                 <td th:text="${usuario.getTelefono()}">
-                <td th:text="${usuario.getRol().getNombre()}">
                 <td><a class="btn btn-info" th:href="@{/saveUsuario/{id}(id=${usuario.id})}">Editar</a></td>
                 <td><a class="btn btn-danger" th:href="@{/deleteUsuario/{id}(id=${usuario.id})}">Eliminar</a></td>
             </tr>

@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up - CodeJava</title>
+    <title>Sign Up - EventosTicket</title>
     <!-- Bootstrap CSS -->
     <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
 <div class="container text-center">
     <div>
-        <h1>User Registration - Sign Up</h1>
+        <h1>Registro de nuevo Usuario - Sign Up</h1>
     </div>
     <form action="#" th:action="@{/procesarSignUp}" th:object="${usuario}" method="post">
         <input type="hidden" th:field="*{id}" name="id" id="id">

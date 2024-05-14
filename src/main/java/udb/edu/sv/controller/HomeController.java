@@ -19,29 +19,9 @@ public class HomeController {
     @Autowired
     private Evento_BoleteriaService eventoBoleteriaService;
 
-    @Autowired
-    private UsuarioService usuarioService;
-
     @RequestMapping("/")
     public String index() {
         return "general/Index";
-    }
-
-    @RequestMapping("/register")
-    public String showRegistrationForm(Model model) {
-        model.addAttribute("usuario", new Usuario());
-        return "general/signup_form";
-    }
-
-    @PostMapping("/procesarSignUp")
-    public String processRegister(Usuario usuario) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(usuario.getPassword());
-        usuario.setPassword(encodedPassword);
-
-        usuarioService.save(usuario);
-
-        return "general/utils/register_success";
     }
 
     @GetMapping("/indexEmpleado")
