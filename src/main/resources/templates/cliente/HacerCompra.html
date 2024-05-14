@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Realizar Compra</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div th:replace="cliente/utils/navbar :: navbar"></div>
+<div class="container">
+    <br>
+    <h1>Datos de la compra</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${boleteria.getEvento().getNombre()}"></h5>
+            <p class="card-text">Descripcion: <span th:text="${boleteria.getEvento().getDescripcion()}"></span></p>
+            <p class="card-text">Lugar: <span th:text="${boleteria.getEvento().getDescripcion()}"></span></p>
+            <p class="card-text">Fecha: <span th:text="${boleteria.getEvento().getFecha()}"></span></p>
+            <p class="card-text">Precio: <span th:text="${boleteria.getPrecio()}"></span></p>
+        </div>
+    </div>
+    <h2>Agregar Compra</h2>
+    <form action="#" th:action="@{/comprarEvento}" th:object="${compra}"
+          method="post">
+        <input type="hidden" th:field="*{id}" name="id" id="id"  th:value="${id}">
+        <input type="hidden" th:field="*{evento}" name="evento" id="evento" th:value="${boleteria.evento.id}">
+        <input type="hidden" name="precio_evento" id="precio_evento" th:value="${boleteria.getPrecio()}">
+        <div class="form-group">
+            <label for="usuario">Usuario:</label>
+            <select class="form-control" id="usuario" name="usuario" th:field="*{usuario}">
+                <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.email}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" class="form-control" id="cantidad" name="cantidad" th:field="*{cantidad}" th:max="${boleteria.getCantidad_disponible()}" oninput="calcularPrecioTotal()">
+        </div>
+        <div class="form-group">
+            <label for="precio_total">Precio Total:</label>
+            <input type="number" class="form-control" step="0.01" id="precio_total" name="precio_total" readonly>
+        </div>
+        <div class="form-group">
+            <label for="fecha_compra">Fecha de Compra:</label>
+            <input type="date" class="form-control" id="fecha_compra" name="fecha_compra" th:field="*{fecha_compra}" readonly>
+        </div>
+        <button type="submit" class="btn btn-success">Confirmar</button>
+    </form>
+</div>
+
+<script th:src="@{/js/HacerCompra.js}"></script>
+
+</body>
+</html>

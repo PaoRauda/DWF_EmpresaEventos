@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú de Eventos</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div th:replace="cliente/utils/navbar :: navbar"></div>
+<div class="container">
+    <br>
+    <h2 th:if="${list.isEmpty()}">No hay Eventos Disponibles</h2>
+    <div th:if="${!list.isEmpty()}">
+        <h2>Eventos</h2>
+        <br>
+        <div class="row">
+            <div th:each="evento_boleteria : ${list}" class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${evento_boleteria.getEvento().getNombre()}"></h5>
+                        <p class="card-text">Descripcion: <span th:text="${evento_boleteria.getEvento().getDescripcion()}"></span></p>
+                        <p class="card-text">Lugar: <span th:text="${evento_boleteria.getEvento().getLugar()}"></span></p>
+                        <p class="card-text">Fecha: <span th:text="${evento_boleteria.getEvento().getFecha()}"></span></p>
+                        <p class="card-text">Precio: <span th:text="${evento_boleteria.getPrecio()}"></span></p>
+                        <p class="card-text">Boletos Disponibles: <span th:text="${evento_boleteria.getCantidad_disponible()}"></span></p>
+                        <p class="card-text">Inicio Venta: <span th:text="${evento_boleteria.getInicio_venta()}"></span></p>
+                        <p class="card-text">Fin Venta: <span th:text="${evento_boleteria.getFin_venta()}"></span></p>
+                        <p class="card-text">Estado: <span th:text="${evento_boleteria.getEstado_boleteria().getNombre()}"></span></p>
+                        <a class="btn btn-success" th:href="@{/comprarEvento/{id}(id=${evento_boleteria.getId()})}">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+</body>
+</html>

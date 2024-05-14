@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Compras</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container">
+    <br>
+    <h2 th:if="${list.isEmpty()}">
+        No hay compras</h2>
+    <div th:if="${!list.isEmpty()}">
+        <h2>
+            Mantenimiento de Compras</h2>
+        <br>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Evento</th>
+                <th>Usuario</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th>Fecha Compra</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="compra : ${list}">
+                <td th:text="${compra.getEvento().getNombre()}">
+                <td th:text="${compra.getUsuario().getNombre()}+ ${compra.getUsuario().getApellido()}">
+                <td th:text="${compra.getCantidad()}">
+                <td th:text="${compra.getPrecio_total()}">
+                <td th:text="${compra.getFecha_compra()}">
+                <td><a class="btn btn-info" th:href="@{/saveCompra/{id}(id=${compra.id})}">Editar</a></td>
+                <td><a class="btn btn-danger" th:href="@{/deleteCompra/{id}(id=${compra.id})}">Eliminar</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+        <a href="/saveCompra/0" class="btn btn-primary">Agregar</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Boleteria</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container">
+    <br>
+    <h2 th:if="${list.isEmpty()}">
+        No hay Eventos</h2>
+    <div th:if="${!list.isEmpty()}">
+        <h2>
+            Mantenimiento de Boleteria</h2>
+        <br>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Evento</th>
+                <th>Precio</th>
+                <th>Boletos Disponibles</th>
+                <th>Inicio Venta</th>
+                <th>Fin Venta</th>
+                <th>Estado</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="evento_boleteria : ${list}">
+                <td th:text="${evento_boleteria.getEvento().getNombre()}">
+                <td th:text="${evento_boleteria.getPrecio()}">
+                <td th:text="${evento_boleteria.getCantidad_disponible()}">
+                <td th:text="${evento_boleteria.getInicio_venta()}">
+                <td th:text="${evento_boleteria.getFin_venta()}">
+                <td th:text="${evento_boleteria.getEstado_boleteria().getNombre()}">
+                <td><a class="btn btn-info" th:href="@{/saveEvento_Boleteria/{id}(id=${evento_boleteria.id})}">Editar</a></td>
+                <td><a class="btn btn-danger" th:href="@{/deleteEvento_Boleteria/{id}(id=${evento_boleteria.id})}">Eliminar</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+        <a href="/saveEvento_Boleteria/0" class="btn btn-primary">Agregar</a>
+    </div>
+</div>
+</body>
+</html>

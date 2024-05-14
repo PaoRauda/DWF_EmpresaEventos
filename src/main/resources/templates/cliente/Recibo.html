@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Compras</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div th:replace="cliente/utils/navbar :: navbar"></div>
+<div class="container">
+    <br>
+    <h2 th:if="${list.isEmpty()}">
+        No hay compras</h2>
+    <div th:if="${!list.isEmpty()}">
+        <h2>
+            Mantenimiento de Compras</h2>
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Datos de la Compra</h5>
+                <p class="card-text">Evento: <span th:text="${compra.getEvento().getNombre()}"></span></p>
+                <p class="card-text">Descripcion: <span th:text="${compra.getEvento().getDescripcion()}"></span></p>
+                <p class="card-text">Lugar: <span th:text="${compra.getEvento().getLugar()}"></span></p>
+                <p class="card-text">Fecha: <span th:text="${compra.getEvento().getFecha()}"></span></p>
+                <p class="card-text">A nombre de: <span th:text="${compra.getUsuario().getNombre()} i ${compra.getUsuario().getApellido()}"></span></p>
+                <p class="card-text">Cantidad: <span th:text="${compra.getCantidad()}"></span></p>
+                <p class="card-text">Total: <span th:text="${compra.getPrecio_total()}"></span></p>
+                <p class="card-text">Fecha de Compra: <span th:text="${compra.getFecha_compra()}"></span></p>
+                <a class="btn btn-success" th:href="@{/indexCliente}">Regresar</a>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container">
+    <br>
+    <h2>Agregar Evento</h2>
+    <form action="#" th:action="@{/saveEvento}" th:object="${evento}" method="post">
+        <input type="hidden" th:field="*{id}" name="id" id="id">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" th:field="*{fecha}">
+        </div>
+        <div class="form-group">
+            <label for="lugar">Lugar:</label>
+            <input type="text" class="form-control" id="lugar" name="lugar" th:field="*{lugar}">
+        </div>
+        <div class="form-group">
+            <label for="capacidad_total">Capacidad Total:</label>
+            <input type="number" class="form-control" id="capacidad_total" name="capacidad_total" th:field="*{capacidad_total}">
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" th:field="*{descripcion}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <select class="form-control" id="categoria" name="categoria" th:field="*{categoria}">
+                <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+</div>
+</body>
+</html>

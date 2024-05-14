@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Eventos</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container">
+    <br>
+    <h2 th:if="${list.isEmpty()}">
+        No hay Eventos</h2>
+    <div th:if="${!list.isEmpty()}">
+        <h2>
+            Mantenimiento de Eventos</h2>
+        <br>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Lugar</th>
+                <th>Capacidad</th>
+                <th>Descripción</th>
+                <th>Categoria</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="evento : ${list}">
+                <td th:text="${evento.getNombre()}">
+                <td th:text="${evento.getFecha()}">
+                <td th:text="${evento.getLugar()}">
+                <td th:text="${evento.getCapacidad_total()}">
+                <td th:text="${evento.getDescripcion()}">
+                <td th:text="${evento.getCategoria().getNombre()}">
+                <td><a class="btn btn-info" th:href="@{/saveEvento/{id}(id=${evento.id})}">Editar</a></td>
+                <td><a class="btn btn-danger" th:href="@{/deleteEvento/{id}(id=${evento.id})}">Eliminar</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+        <a href="/saveEvento/0" class="btn btn-primary">Agregar</a>
+    </div>
+</div>
+</body>
+</html>

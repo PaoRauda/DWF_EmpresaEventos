@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Advertencia</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container">
+    <div class="error-container text-center">
+        <h2 class="error-heading">¡Ocurrió un error!</h2>
+        <p class="error-message" th:text="${error}"></p>
+        <a href="/static" class="btn btn-primary btn-back">Volver a la página principal</a>
+    </div>
+</div>
+</body>
+</html>
