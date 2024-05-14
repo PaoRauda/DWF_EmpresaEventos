@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Menú de Eventos</title>
@@ -16,6 +17,11 @@
     <div th:if="${!list.isEmpty()}">
         <h2>Eventos</h2>
         <br>
+        <span sec:authentication="name">Username</span>
+        <span sec:authentication="principal.authorities">Roles</span>
+        <div sec:authorize="hasAuthority('ROLE_EMPLEADO')">
+            <a th:href="@{'/indexEmpleado'}">Acciones de Empleado</a>
+        </div>
         <div class="row">
             <div th:each="evento_boleteria : ${list}" class="col-md-4 mb-4">
                 <div class="card">

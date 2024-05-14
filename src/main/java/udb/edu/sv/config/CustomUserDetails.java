@@ -1,5 +1,7 @@
 package udb.edu.sv.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,6 +11,7 @@ import udb.edu.sv.dao.model.Usuario;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CustomUserDetails implements UserDetails {
@@ -20,7 +23,14 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Set<Rol> roles = usuario.getRoles();
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+        for (Rol role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getNombre()));
+        }
+
+        return authorities;
     }
 
     @Override
@@ -55,5 +65,9 @@ public class CustomUserDetails implements UserDetails {
 
     public String getFullName() {
         return usuario.getNombre() + " " + usuario.getApellido();
+    }
+
+    public Collection<GrantedAuthority> mapToAuthorities(List<Rol> roles){
+        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getNombre())).collect(Collectors.toList());
     }
 }

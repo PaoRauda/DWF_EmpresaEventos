@@ -9,6 +9,8 @@ import udb.edu.sv.dao.model.Usuario;
 import java.util.List;
 
 public interface UsuarioDAO extends JpaRepository<Usuario, Long> {
-    @Query("SELECT u FROM Usuario u WHERE u.email = ?1")
+
+    //@Query("SELECT u FROM Usuario u WHERE u.email = ?1")
+    @Query("SELECT u FROM Usuario u WHERE u.email = :email")
     public Usuario findByEmail(String email);
 }

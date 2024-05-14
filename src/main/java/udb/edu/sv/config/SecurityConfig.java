@@ -9,13 +9,16 @@ import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -75,12 +78,14 @@ public class SecurityConfig{
         http.authenticationProvider(authenticationProvider());
 
         http.authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/indexEmpleado").authenticated()
+                        auth
+                        .requestMatchers(HttpMethod.GET,"/indexEmpleado").hasRole("EMPLEADO")
+                        .requestMatchers(HttpMethod.GET,"/indexCliente").authenticated()
                                 .anyRequest().permitAll()
                 )
                 .formLogin(login ->
                         login.usernameParameter("email")
-                                .defaultSuccessUrl("/users")
+                                .defaultSuccessUrl("/indexCliente")
                                 .permitAll()
                 )
                 .logout(logout -> logout.logoutSuccessUrl("/").permitAll()

@@ -44,12 +44,12 @@ public class HomeController {
         return "general/utils/register_success";
     }
 
-    @RequestMapping("/indexEmpleado")
+    @GetMapping("/indexEmpleado")
     public String indexEmpleado() {
         return "empleado/IndexEmpleado";
     }
 
-    @RequestMapping("/indexCliente")
+    @GetMapping("/indexCliente")
     public String indexCliente(Model model) {
         model.addAttribute("list", eventoBoleteriaService.getAll());
         return "cliente/IndexCliente";
