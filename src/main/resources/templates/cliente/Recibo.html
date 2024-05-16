@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gestionar Compras</title>
+    <title>Recibo</title>
 
     <!-- Bootstrap CSS -->
     <link href="../../static/css/bootstrap.css" rel="stylesheet"
@@ -12,23 +12,20 @@
 <div th:replace="general/utils/navbar :: navbar"></div>
 <div class="container">
     <br>
-    <h2 th:if="${list.isEmpty()}">
-        No hay compras</h2>
-    <div th:if="${!list.isEmpty()}">
-        <h2>
-            Mantenimiento de Compras</h2>
+    <div>
+        <h2>Recibo</h2>
         <br>
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Datos de la Compra</h5>
-                <p class="card-text">Evento: <span th:text="${compra.getEvento().getNombre()}"></span></p>
-                <p class="card-text">Descripcion: <span th:text="${compra.getEvento().getDescripcion()}"></span></p>
-                <p class="card-text">Lugar: <span th:text="${compra.getEvento().getLugar()}"></span></p>
-                <p class="card-text">Fecha: <span th:text="${compra.getEvento().getFecha()}"></span></p>
-                <p class="card-text">A nombre de: <span th:text="${compra.getUsuario().getNombre()} i ${compra.getUsuario().getApellido()}"></span></p>
-                <p class="card-text">Cantidad: <span th:text="${compra.getCantidad()}"></span></p>
-                <p class="card-text">Total: <span th:text="${compra.getPrecio_total()}"></span></p>
-                <p class="card-text">Fecha de Compra: <span th:text="${compra.getFecha_compra()}"></span></p>
+                <p class="card-text">Evento: <span th:text="${compra.evento.nombre}"></span></p>
+                <p class="card-text">Descripcion: <span th:text="${compra.evento.descripcion}"></span></p>
+                <p class="card-text">Lugar: <span th:text="${compra.evento.lugar}"></span></p>
+                <p class="card-text">Fecha: <span th:text="${compra.evento.fecha}"></span></p>
+                <p class="card-text">Cantidad: <span th:text="${compra.cantidad}"></span></p>
+                <p class="card-text">A nombre de: <span th:text="${compra.usuario.email}"></span></p>
+                <p class="card-text">Total: <span th:text="${compra.precio_total}"></span></p>
+                <p class="card-text">Fecha de Compra: <span th:text="${compra.fecha_compra}"></span></p>
                 <a class="btn btn-success" th:href="@{/indexCliente}">Regresar</a>
             </div>
         </div>

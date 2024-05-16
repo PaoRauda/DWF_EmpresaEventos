@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Realizar Compra</title>
@@ -25,15 +25,13 @@
     <h2>Agregar Compra</h2>
     <form action="#" th:action="@{/comprarEvento}" th:object="${compra}"
           method="post">
+        <!--Datos escondidos-->
         <input type="hidden" th:field="*{id}" name="id" id="id"  th:value="${id}">
-        <input type="hidden" th:field="*{evento}" name="evento" id="evento" th:value="${boleteria.evento.id}">
         <input type="hidden" name="precio_evento" id="precio_evento" th:value="${boleteria.getPrecio()}">
-        <div class="form-group">
-            <label for="usuario">Usuario:</label>
-            <select class="form-control" id="usuario" name="usuario" th:field="*{usuario}">
-                <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.email}"></option>
-            </select>
-        </div>
+        <input type="hidden" class="form-control" name="evento" th:field="*{evento}" id="evento" th:value="${compra.evento.id}" th:text="${compra.evento.nombre}">
+        <input type="hidden" class="form-control" name="usuario" id="usuario" th:field="*{usuario.id}"  th:value="${compra.usuario.id}" th:text="${compra.usuario.email}">
+
+        <!--Datos visibles-->
         <div class="form-group">
             <label for="cantidad">Cantidad:</label>
             <input type="number" class="form-control" id="cantidad" name="cantidad" th:field="*{cantidad}" th:max="${boleteria.getCantidad_disponible()}" oninput="calcularPrecioTotal()">
