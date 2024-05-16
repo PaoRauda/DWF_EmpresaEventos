@@ -20,7 +20,6 @@ public class GlobalExceptionHandler {
         model.addAttribute("error", "No tiene permisos para acceder.");
         return "general/utils/customError";
     }
-
     @ExceptionHandler(NoResourceFoundException.class)
     public String handleNoResourceFoundException(NoResourceFoundException ex, Model model) {
         model.addAttribute("error", "No hemos encontrado los que buscas.");

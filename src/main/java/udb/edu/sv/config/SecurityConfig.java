@@ -52,7 +52,7 @@ public class SecurityConfig{
                 )/*.oauth2Login(withDefaults())*/
                 .formLogin(login ->
                         login.usernameParameter("email")
-                                .defaultSuccessUrl("indexCliente")
+                                .defaultSuccessUrl("/indexCliente")
                                 .permitAll()
                 )
                 .logout(logout -> logout.logoutSuccessUrl("/").permitAll()
