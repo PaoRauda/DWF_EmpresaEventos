@@ -10,9 +10,11 @@
 </head>
 <body>
 <div class="container">
-    <br>
-    <h2>
-        Agregar Compra</h2>
+    <a class="btn btn-primary btn-lg" th:href="@{/showCompra}">Regresar a index de compras</a>
+</div>
+
+<div class="container">
+    <h2>Agregar Compra</h2>
     <form action="#" th:action="@{/saveCompra}" th:object="${compra}"
           method="post">
         <input type="hidden" th:field="*{id}" name="id" id="id">

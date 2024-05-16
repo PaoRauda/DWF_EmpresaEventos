@@ -9,6 +9,10 @@
 </head>
 <body>
 <div class="container">
+    <a class="btn btn-primary btn-lg" th:href="@{/showUsuario}">Regresar a menú de usuarios</a>
+</div>
+
+<div class="container">
     <br>
     <h2>Agregar Usuario</h2>
     <form action="#" th:action="@{/saveUsuario}" th:object="${usuario}" method="post">

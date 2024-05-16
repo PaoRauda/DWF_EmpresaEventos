@@ -9,6 +9,10 @@
 </head>
 <body>
 <div class="container">
+    <a class="btn btn-primary btn-lg" th:href="@{/showEvento_Boleteria}">Regresar a menú de Boleterias</a>
+</div>
+
+<div class="container">
     <br>
     <h2>Agregar Boletería para el Evento</h2>
     <form action="#" th:action="@{/saveEvento_Boleteria}" th:object="${evento_boleteria}" method="post">

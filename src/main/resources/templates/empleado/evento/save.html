@@ -9,6 +9,9 @@
 </head>
 <body>
 <div class="container">
+    <a class="btn btn-primary btn-lg" th:href="@{/showEvento}">Regresar a menú de eventos</a>
+</div>
+<div class="container">
     <br>
     <h2>Agregar Evento</h2>
     <form action="#" th:action="@{/saveEvento}" th:object="${evento}" method="post">
