@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Roles De Usuario</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container">
+    <br>
+    <h2 th:if="${list.isEmpty()}">
+        No hay Asignaciones de roles</h2>
+    <div th:if="${!list.isEmpty()}">
+        <h2>
+            Asignación de roles</h2>
+        <br>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Usuario ID</th>
+                <th>Nombre Usuario</th>
+                <th>Apellido Usuario</th>
+                <th>Email Usuario</th>
+                <th>Rol ID</th>
+                <th>Rol</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="usuarios_roles : ${list}">
+                <td th:text="${usuarios_roles.getUsuario().getId()}">
+                <td th:text="${usuarios_roles.getUsuario().getNombre()}">
+                <td th:text="${usuarios_roles.getUsuario().getApellido()}">
+                <td th:text="${usuarios_roles.getUsuario().getEmail()}">
+                <td th:text="${usuarios_roles.getRoles().getId()}">
+                <td th:text="${usuarios_roles.getRoles().getNombre()}">
+                <td><a class="btn btn-info" th:href="@{/saveUsuarios_Roles/{id}(id=${usuarios_roles.getId()})}">Editar</a></td>
+                <td><a class="btn btn-danger" th:href="@{/deleteUsuarios_Roles/{id}(id=${usuarios_roles.getId()})}">Eliminar</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+        <a href="/saveUsuarios_Roles/0" class="btn btn-primary">Agregar</a>
+    </div>
+</div>
+</body>
+</html>
