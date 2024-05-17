@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import udb.edu.sv.dao.CompraDAO;
 import udb.edu.sv.dao.UsuarioDAO;
 import udb.edu.sv.dao.model.Compra;
 import udb.edu.sv.dao.model.Evento_Boleteria;
@@ -15,7 +17,7 @@ import udb.edu.sv.dao.model.Usuario;
 import udb.edu.sv.service.CompraService;
 import udb.edu.sv.service.Evento_BoleteriaService;
 
-@Controller
+@Controller //Controller para plantillas dentro de carpeta "cliente"
 public class ClienteController
 {
     @Autowired
@@ -26,6 +28,9 @@ public class ClienteController
 
     @Autowired
     private UsuarioDAO usuarioDAO;
+
+    @Autowired
+    private CompraDAO compraDAO;
 
 
     @GetMapping("/comprarEvento/{id}")
@@ -52,6 +57,15 @@ public class ClienteController
     public String comprarEvento(Compra compra, Model model) {
         compraService.save(compra);
         model.addAttribute("compra", compra);
-        return "cliente/Recibo";
+        return "cliente/ReciboCompra";
+    }
+
+    @RequestMapping("/historial")
+    public String showHistorial(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+
+        model.addAttribute("list", compraDAO.findByUsuarioEmail(email));
+        return "cliente/historial";
     }
 }

@@ -12,7 +12,7 @@ import udb.edu.sv.dao.model.Usuarios_Roles;
 import udb.edu.sv.service.UsuarioService;
 import udb.edu.sv.service.Usuarios_RolesService;
 
-@Controller
+@Controller //Controller para templates dentro de carpeta "empleado/usuarios_roles". Acceso restringido
 @PreAuthorize("hasAnyRole('EMPLEADO','MANAGER')")
 public class Usuarios_RolesController {
 

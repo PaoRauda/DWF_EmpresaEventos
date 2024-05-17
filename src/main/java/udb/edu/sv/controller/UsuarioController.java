@@ -11,7 +11,7 @@ import udb.edu.sv.dao.model.Usuario;
 import udb.edu.sv.service.UsuarioService;
 import org.springframework.ui.Model;
 
-@Controller
+@Controller //Controller para templates dentro de carpeta "empleado/usuario". Acceso restringido
 @PreAuthorize("hasAnyRole('EMPLEADO','MANAGER')")
 public class UsuarioController {
 

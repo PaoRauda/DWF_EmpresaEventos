@@ -46,6 +46,7 @@ public class SecurityConfig{
         http.authorizeHttpRequests(auth ->
                         auth
                                 .requestMatchers("/procesarSignUp","/register", "/login").permitAll()
+                                .requestMatchers("/css/**").permitAll()
                                 .requestMatchers("/indexCliente", "/comprarEvento/**","/comprarEvento").authenticated()
                                 .requestMatchers("/indexEmpleado").hasAnyRole("EMPLEADO","MANAGER")
                                 .anyRequest().authenticated()

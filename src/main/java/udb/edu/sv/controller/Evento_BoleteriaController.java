@@ -12,7 +12,7 @@ import udb.edu.sv.dao.model.Evento_Boleteria;
 import udb.edu.sv.service.EventoService;
 import udb.edu.sv.service.Evento_BoleteriaService;
 
-@Controller
+@Controller //Controller para templates dentro de carpeta "empleado/evento_boleteria". Acceso restringido
 @PreAuthorize("hasAnyRole('EMPLEADO','MANAGER')")
 public class Evento_BoleteriaController {
     @Autowired

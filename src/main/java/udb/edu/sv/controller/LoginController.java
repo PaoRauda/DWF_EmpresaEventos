@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import udb.edu.sv.dao.model.Usuario;
 import udb.edu.sv.service.UsuarioService;
 
-@Controller
+@Controller //Controller para templates relacionados a logueo y registro de usuarios.
 public class LoginController {
 
     @Autowired

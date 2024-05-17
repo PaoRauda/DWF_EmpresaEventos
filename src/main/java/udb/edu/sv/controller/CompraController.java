@@ -1,6 +1,5 @@
 package udb.edu.sv.controller;
 
-import jakarta.ws.rs.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -12,7 +11,7 @@ import udb.edu.sv.service.EventoService;
 import udb.edu.sv.service.UsuarioService;
 
 
-@Controller
+@Controller //Controller para templates dentro de carpeta "empleado/compra". Acceso restringido
 @PreAuthorize("hasAnyRole('EMPLEADO','MANAGER')")
 public class CompraController {
 

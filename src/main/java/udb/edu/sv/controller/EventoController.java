@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import udb.edu.sv.dao.model.Evento;
-import udb.edu.sv.dao.model.Usuario;
 import udb.edu.sv.service.CategoriaService;
 import udb.edu.sv.service.EventoService;
-import udb.edu.sv.service.UsuarioService;
 
-@Controller
+@Controller //Controller para templates dentro de carpeta "empleado/evento". Acceso restringido
 @PreAuthorize("hasAnyRole('EMPLEADO','MANAGER')")
 public class EventoController {
     @Autowired
