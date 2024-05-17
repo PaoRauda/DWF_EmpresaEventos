@@ -6,39 +6,46 @@
     <title>Historial de compras</title>
 
     <!-- Bootstrap CSS -->
-    <link href="../../static/css/bootstrap.css" rel="stylesheet"
-          th:href="@{/css/bootstrap.css}">
+    <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <!-- Estilos personalizados -->
+    <link href="../../static/css/cliente/historial.css" rel="stylesheet" th:href="@{/css/cliente/historial.css}">
 </head>
 <body>
 <div th:replace="general/utils/navbar :: navbar"></div>
-<div class="container">
-    <br>
-    <h2 th:if="${list.isEmpty()}">
-        No hay compras</h2>
-    <div th:if="${!list.isEmpty()}">
-        <h2>
-            Compras de <span sec:authentication="principal.fullName"></span></h2>
+<main class="flex-grow-1">
+    <div class="container">
         <br>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Evento</th>
-                <th>Cantidad</th>
-                <th>Precio Total</th>
-                <th>Fecha Compra</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="compra : ${list}">
-                <td th:text="${compra.getEvento().getNombre()}">
-                <td th:text="${compra.getCantidad()}">
-                <td th:text="'$' + ${compra.getPrecio_total()}">
-                <td th:text="${compra.getFecha_compra()}">
-            </tr>
-            </tbody>
-        </table>
+        <h2 th:if="${list.isEmpty()}">No hay compras</h2>
+        <div th:if="${!list.isEmpty()}">
+            <h2>Compras de <span sec:authentication="principal.fullName"></span></h2>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Evento</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Fecha Compra</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="compra : ${list}">
+                    <td th:text="${compra.getEvento().getNombre()}"></td>
+                    <td th:text="${compra.getCantidad()}"></td>
+                    <td th:text="${compra.getPrecio_total()}"></td>
+                    <td th:text="${compra.getFecha_compra()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
     </div>
-    <br>
-</div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    Creado por: Paola Fernanda Ramírez Rauda, Cesia Aracely Raymundo Peraza, José Rolando Álvarez Mejía, Diego Enrique Canjura Estrada, Rodrigo Andrés López Orellana y Edgar Fernando López Zabaleta.
+</footer>
+
 </body>
 </html>
