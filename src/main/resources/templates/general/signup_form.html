@@ -5,49 +5,51 @@
     <title>Sign Up - EventosTicket</title>
     <!-- Bootstrap CSS -->
     <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <!-- Custom CSS -->
+    <link href="../../static/css/singup-styles.css" rel="stylesheet" th:href="@{/css/singup-styles.css}">
+
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">EventosTicket</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<header>
+    <h2>EventosTicket</h2>
+</header>
+<main>
+    <div class="container text-center">
+        <div>
+            <h1>Registro de nuevo Usuario - Sign Up</h1>
+        </div>
+        <form action="#" th:action="@{/procesarSignUp}" th:object="${usuario}" method="post">
+            <input type="hidden" th:field="*{id}" name="id" id="id">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" th:field="*{apellido}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" th:field="*{email}">
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" class="form-control" id="password" name="password" th:field="*{password}">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" th:field="*{direccion}">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" th:field="*{telefono}">
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
     </div>
-</nav>
-<br /><br />
-<div class="container text-center">
-    <div>
-        <h1>Registro de nuevo Usuario - Sign Up</h1>
-    </div>
-    <form action="#" th:action="@{/procesarSignUp}" th:object="${usuario}" method="post">
-        <input type="hidden" th:field="*{id}" name="id" id="id">
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
-        </div>
-        <div class="form-group">
-            <label for="apellido">Apellido:</label>
-            <input type="text" class="form-control" id="apellido" name="apellido" th:field="*{apellido}">
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" th:field="*{email}">
-        </div>
-        <div class="form-group">
-            <label for="password">Contraseña:</label>
-            <input type="password" class="form-control" id="password" name="password" th:field="*{password}">
-        </div>
-        <div class="form-group">
-            <label for="direccion">Dirección:</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" th:field="*{direccion}">
-        </div>
-        <div class="form-group">
-            <label for="telefono">Teléfono:</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" th:field="*{telefono}">
-        </div>
-        <button type="submit" class="btn btn-success">Guardar</button>
-    </form>
-</div>
+</main>
+<footer>
+    <p>Creado por: Paola Fernanda Ramírez Rauda, Cesia Aracely Raymundo Peraza, José Rolando Álvarez Mejía, Diego Enrique Canjura Estrada, Rodrigo Andrés López Orellana y Edgar Fernando López Zabaleta.</p>
+</footer>
 </body>
 </html>
