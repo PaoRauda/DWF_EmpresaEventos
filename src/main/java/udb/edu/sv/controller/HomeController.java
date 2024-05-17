@@ -25,7 +25,7 @@ public class HomeController {
 
     @GetMapping("/indexCliente")
     public String indexCliente(Model model) {
-        model.addAttribute("list", eventoBoleteriaService.getAll());
+        model.addAttribute("list", eventoBoleteriaService.getByEstado(1));
         return "cliente/IndexCliente";
     }
 }

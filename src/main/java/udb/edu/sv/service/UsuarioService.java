@@ -4,4 +4,6 @@ import udb.edu.sv.commons.GenericService;
 import udb.edu.sv.dao.model.Usuario;
 
 public interface UsuarioService extends GenericService<Usuario, Long> {
+
+    boolean IsExistsByEmail(String email);
 }

@@ -27,6 +27,12 @@ public class LoginController {
         String encodedPassword = passwordEncoder.encode(usuario.getPassword());
         usuario.setPassword(encodedPassword);
 
+        boolean usuarioExiste = usuarioService.IsExistsByEmail(usuario.getEmail());
+
+        if(usuarioExiste){
+            return "general/utils/register_unsuccessful";
+        }
+
         usuarioService.save(usuario);
 
         return "general/utils/register_success";
