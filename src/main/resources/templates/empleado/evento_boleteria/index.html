@@ -36,7 +36,7 @@
             <tbody>
             <tr th:each="evento_boleteria : ${list}">
                 <td th:text="${evento_boleteria.getEvento().getNombre()}">
-                <td th:text="${evento_boleteria.getPrecio()}">
+                <td th:text="'$' +${evento_boleteria.getPrecio()}">
                 <td th:text="${evento_boleteria.getCantidad_disponible()}">
                 <td th:text="${evento_boleteria.getInicio_venta()}">
                 <td th:text="${evento_boleteria.getFin_venta()}">

@@ -19,7 +19,7 @@
             <p class="card-text">Descripcion: <span th:text="${boleteria.getEvento().getDescripcion()}"></span></p>
             <p class="card-text">Lugar: <span th:text="${boleteria.getEvento().getDescripcion()}"></span></p>
             <p class="card-text">Fecha: <span th:text="${boleteria.getEvento().getFecha()}"></span></p>
-            <p class="card-text">Precio: <span th:text="${boleteria.getPrecio()}"></span></p>
+            <p class="card-text">Precio: <span th:text="'$' +${boleteria.getPrecio()}"></span></p>
         </div>
     </div>
     <h2>Agregar Compra</h2>

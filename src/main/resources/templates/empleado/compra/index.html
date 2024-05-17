@@ -35,9 +35,9 @@
             <tbody>
             <tr th:each="compra : ${list}">
                 <td th:text="${compra.getEvento().getNombre()}">
-                <td th:text="${compra.getUsuario().getNombre()}+ ${compra.getUsuario().getApellido()}">
+                <td th:text="${compra.getUsuario().getNombre()} + ' ' + ${compra.getUsuario().getApellido()}">
                 <td th:text="${compra.getCantidad()}">
-                <td th:text="${compra.getPrecio_total()}">
+                <td th:text="'$' + ${compra.getPrecio_total()}">
                 <td th:text="${compra.getFecha_compra()}">
                 <td><a class="btn btn-info" th:href="@{saveCompra/{id}(id=${compra.id})}">Editar</a></td>
                 <td><a class="btn btn-danger" th:href="@{deleteCompra/{id}(id=${compra.id})}">Eliminar</a></td>

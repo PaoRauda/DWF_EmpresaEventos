@@ -37,14 +37,9 @@ public class Usuario {
     @Column
     private String telefono;
 
-    /*@ManyToOne
-    @JoinColumn(name = "rol", referencedColumnName = "id")
-    private Rol rol;*/
-
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    /*Con JoinTable estaremos creando una tabla que unirá la tabla de usuario y role, con lo cual tendremos un total de 3 tablas
-    relacionadas en la tabla "usuarios_roles", a través de sus columnas usuario_id que apuntara al ID de la tabla usuario
-    y role_id que apuntara al Id de la tabla role */
+    /* Se crea un relacion ManyToMany entre las tablas "rol" y "usuario", juntandose en la tabla "usuarios_roles".
+    * Los datos se guardan en un Hashset por si el usuario tiene más de 1 rol*/
     @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
             ,inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Rol> roles = new HashSet<>();

@@ -24,7 +24,7 @@
             <tr>
                 <th>Evento</th>
                 <th>Cantidad</th>
-                <th>Total</th>
+                <th>Precio Total</th>
                 <th>Fecha Compra</th>
             </tr>
             </thead>
@@ -32,7 +32,7 @@
             <tr th:each="compra : ${list}">
                 <td th:text="${compra.getEvento().getNombre()}">
                 <td th:text="${compra.getCantidad()}">
-                <td th:text="${compra.getPrecio_total()}">
+                <td th:text="'$' + ${compra.getPrecio_total()}">
                 <td th:text="${compra.getFecha_compra()}">
             </tr>
             </tbody>

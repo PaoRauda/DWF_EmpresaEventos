@@ -14,11 +14,11 @@ public class CustomUserDetailsService implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Usuario usuario = usuarioDAO.findByEmail(email);
+
+        Usuario usuario = usuarioDAO.findByEmail(email); // Busca datos del usuario
         if (usuario == null) {
             throw new UsernameNotFoundException("Usuario no encontrado");
         }
-        //Cargamos una lista de String con los roles alojados en BD
         return new CustomUserDetails(usuario);
     }
 
