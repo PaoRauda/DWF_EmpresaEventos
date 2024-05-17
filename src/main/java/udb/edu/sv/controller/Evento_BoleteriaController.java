@@ -51,4 +51,11 @@ public class Evento_BoleteriaController {
 
         return "redirect:/showEvento_Boleteria";
     }
+
+    @RequestMapping("/actualizarEstado")
+    public String actualizarEstado(Model model) {
+        eventoBoleteriaService.actualizarEstado();
+        return "redirect:/showEvento_Boleteria";
+    }
+
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Boletería del Evento</title>
@@ -41,7 +41,7 @@
         </div>
         <div class="form-group">
             <label for="estado">Estado:</label>
-            <select class="form-control" id="estado" name="estado" th:field="*{estado_boleteria}">
+            <select class="form-control" id="estado" name="estado" th:field="*{estado_boleteria.id}">
                 <option th:value=1>Activa</option>
                 <option th:value=2>Inactiva</option>
             </select>

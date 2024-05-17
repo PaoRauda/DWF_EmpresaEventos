@@ -26,4 +26,8 @@ public class Evento_BoleteriaServiceImpl extends GenericServiceImpl<Evento_Bolet
         evento_boleteriaDAO.findByEstado(estado).forEach(obj -> returnList.add(obj));
         return returnList;
     }
+
+    public void actualizarEstado(){
+         evento_boleteriaDAO.actualizarEstado();
+    }
 }
