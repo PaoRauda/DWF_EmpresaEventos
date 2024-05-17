@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6" lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Recibo</title>
@@ -7,15 +7,17 @@
     <!-- Bootstrap CSS -->
     <link href="../../static/css/bootstrap.css" rel="stylesheet"
           th:href="@{/css/bootstrap.css}">
+    <!-- Estilos personalizados -->
+    <link href="../../static/css/cliente/recibo.css" rel="stylesheet" th:href="@{/css/cliente/recibo.css}">
 </head>
 <body>
 <div th:replace="general/utils/navbar :: navbar"></div>
 <div class="container">
     <br>
-    <div>
-        <h2>¡Compra Realizada!</h2>
+    <div class="card-container">
+        <h2>Recibo</h2>
         <br>
-        <div class="card">
+        <div class="card custom-card">
             <div class="card-body">
                 <h5 class="card-title">Datos de la Compra</h5>
                 <p class="card-text">Evento: <span th:text="${compra.evento.nombre}"></span></p>
@@ -23,14 +25,22 @@
                 <p class="card-text">Lugar: <span th:text="${compra.evento.lugar}"></span></p>
                 <p class="card-text">Fecha: <span th:text="${compra.evento.fecha}"></span></p>
                 <p class="card-text">Cantidad: <span th:text="${compra.cantidad}"></span></p>
-                <p class="card-text">A nombre de: <span sec:authentication="principal.fullName"></span></p>
-                <p class="card-text">Total: <span th:text="'$' + ${compra.precio_total}"></span></p>
+                <p class="card-text">A nombre de: <span th:text="${compra.usuario.email}"></span></p>
+                <p class="card-text">Total: <span th:text="${compra.precio_total}"></span></p>
                 <p class="card-text">Fecha de Compra: <span th:text="${compra.fecha_compra}"></span></p>
-                <a class="btn btn-success" th:href="@{/indexCliente}">Regresar</a>
+                <div class="text-center">
+                    <a class="btn btn-success" th:href="@{/indexCliente}">Regresar</a>
+                </div>
             </div>
         </div>
     </div>
     <br>
 </div>
+
+<!-- Footer -->
+<footer>
+    Creado por: Paola Fernanda Ramírez Rauda, Cesia Aracely Raymundo Peraza, José Rolando Álvarez Mejía, Diego Enrique Canjura Estrada, Rodrigo Andrés López Orellana y Edgar Fernando López Zabaleta.
+</footer>
+
 </body>
 </html>
