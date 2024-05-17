@@ -31,11 +31,12 @@
                     <a class="nav-link fw-semibold" th:href="@{'/indexEmpleado'}">Acciones para Personal</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/}">Salir</a>
-            </li>
         </ul>
+        <form class="d-flex" th:action="@{/logout}" method="post">
+            <button class="btn btn-outline-danger" type="submit">Salir</button>
+        </form>
     </div>
+
 </nav>
 <!-- Bootstrap JS -->
 <script th:src="@{/js/jquery-3.5.1.slim.min.js}"></script>

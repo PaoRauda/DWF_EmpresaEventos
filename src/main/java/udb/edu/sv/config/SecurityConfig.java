@@ -53,10 +53,15 @@ public class SecurityConfig{
                 )/*.oauth2Login(withDefaults())*/
                 .formLogin(login ->
                         login.usernameParameter("email")
+                                .loginPage("/login")
+                                .loginProcessingUrl("/login")
                                 .defaultSuccessUrl("/indexCliente")
                                 .permitAll()
                 )
-                .logout(logout -> logout.logoutSuccessUrl("/").permitAll()
+                .logout(logout ->
+                        logout
+                        .logoutSuccessUrl("/")
+                                .permitAll()
                 );
 
         return http.build();
