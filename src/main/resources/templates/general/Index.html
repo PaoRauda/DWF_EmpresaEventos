@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Bienvenido a EventosTicket</title>
     <!-- Bootstrap CSS -->
-    <link href="../../static/css/bootstrap.css" rel="stylesheet"
-          th:href="@{/css/bootstrap.css}">
+    <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <!-- Custom CSS -->
+    <link href="../../static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="container text-center">
+<header class="text-center py-3">
+    <h2>EventosTicket</h2>
+</header>
+<main>
     <h1>Bienvenido a EventosTicket</h1>
-    <h3><a th:href="@{/register}">Registrate</a></h3>
-    <h3><a th:href="@{/login}">Login</a></h3>
-</div>
+    <div class="container">
+        <p>Bienvenido a tu plataforma favorita de eventos, acá podrás comprar tus entradas a los eventos que prefieras. Para empezar, inicia sesión o crea tu cuenta si aún no la tienes!</p>
+        <div>
+            <a th:href="@{/register}" class="btn">Registrate</a>
+        </div>
+        <div>
+            <a th:href="@{/login}" class="btn">Login</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    Creado por: Paola Fernanda Ramírez Rauda, Cesia Aracely Raymundo Peraza, José Rolando Álvarez Mejía, Diego Enrique Canjura Estrada, Rodrigo Andrés López Orellana y Edgar Fernando López Zabaleta.
+</footer>
 
 </body>
 </html>
