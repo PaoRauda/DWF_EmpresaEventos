@@ -5,48 +5,61 @@
     <title>Realizar Compra</title>
 
     <!-- Bootstrap CSS -->
-    <link href="../../static/css/bootstrap.css" rel="stylesheet"
-          th:href="@{/css/bootstrap.css}">
+    <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <!-- Estilos personalizados -->
+    <link href="../../static/css/cliente/compra.css" rel="stylesheet" th:href="@{/css/cliente/compra.css}">
 </head>
 <body>
 <div th:replace="general/utils/navbar :: navbar"></div>
-<div class="container">
-    <br>
-    <h1>Datos de la compra</h1>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title" th:text="${boleteria.getEvento().getNombre()}"></h5>
-            <p class="card-text">Descripcion: <span th:text="${boleteria.getEvento().getDescripcion()}"></span></p>
-            <p class="card-text">Lugar: <span th:text="${boleteria.getEvento().getDescripcion()}"></span></p>
-            <p class="card-text">Fecha: <span th:text="${boleteria.getEvento().getFecha()}"></span></p>
-            <p class="card-text">Precio: <span th:text="'$' +${boleteria.getPrecio()}"></span></p>
+<main class="flex-grow-1">
+    <div class="container">
+        <br>
+        <div class="informacion-compra">
+            <h1>Datos de la compra</h1>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${boleteria.getEvento().getNombre()}"></h5>
+                    <p class="card-text">Descripcion: <span th:text="${boleteria.getEvento().getDescripcion()}"></span></p>
+                    <p class="card-text">Lugar: <span th:text="${boleteria.getEvento().getLugar()}"></span></p>
+                    <p class="card-text">Fecha: <span th:text="${boleteria.getEvento().getFecha()}"></span></p>
+                    <p class="card-text">Precio: <span th:text="${boleteria.getPrecio()}"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="agregar-compra">
+            <h2>Agregar Compra</h2>
+            <form action="#" th:action="@{/comprarEvento}" th:object="${compra}" method="post">
+                <!--Datos escondidos-->
+                <input type="hidden" th:field="*{id}" name="id" id="id" th:value="${id}">
+                <input type="hidden" name="precio_evento" id="precio_evento" th:value="${boleteria.getPrecio()}">
+                <input type="hidden" class="form-control" name="evento" th:field="*{evento}" id="evento" th:value="${compra.evento.id}" th:text="${compra.evento.nombre}">
+                <input type="hidden" class="form-control" name="usuario" id="usuario" th:field="*{usuario.id}" th:value="${compra.usuario.id}" th:text="${compra.usuario.email}">
+
+                <!--Datos visibles-->
+                <div class="form-group">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" class="form-control" id="cantidad" name="cantidad" th:field="*{cantidad}" th:max="${boleteria.getCantidad_disponible()}" oninput="calcularPrecioTotal()">
+                </div>
+                <div class="form-group">
+                    <label for="precio_total">Precio Total:</label>
+                    <input type="number" class="form-control" step="0.01" id="precio_total" name="precio_total" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_compra">Fecha de Compra:</label>
+                    <input type="date" class="form-control" id="fecha_compra" name="fecha_compra" th:field="*{fecha_compra}" readonly>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Confirmar</button>
+                </div>
+            </form>
         </div>
     </div>
-    <h2>Agregar Compra</h2>
-    <form action="#" th:action="@{/comprarEvento}" th:object="${compra}"
-          method="post">
-        <!--Datos escondidos-->
-        <input type="hidden" th:field="*{id}" name="id" id="id"  th:value="${id}">
-        <input type="hidden" name="precio_evento" id="precio_evento" th:value="${boleteria.getPrecio()}">
-        <input type="hidden" class="form-control" name="evento" th:field="*{evento}" id="evento" th:value="${compra.evento.id}" th:text="${compra.evento.nombre}">
-        <input type="hidden" class="form-control" name="usuario" id="usuario" th:field="*{usuario.id}"  th:value="${compra.usuario.id}" th:text="${compra.usuario.email}">
+</main>
 
-        <!--Datos visibles-->
-        <div class="form-group">
-            <label for="cantidad">Cantidad:</label>
-            <input type="number" class="form-control" id="cantidad" name="cantidad" th:field="*{cantidad}" th:max="${boleteria.getCantidad_disponible()}" oninput="calcularPrecioTotal()">
-        </div>
-        <div class="form-group">
-            <label for="precio_total">Precio Total:</label>
-            <input type="number" class="form-control" step="0.01" id="precio_total" name="precio_total" readonly>
-        </div>
-        <div class="form-group">
-            <label for="fecha_compra">Fecha de Compra:</label>
-            <input type="date" class="form-control" id="fecha_compra" name="fecha_compra" th:field="*{fecha_compra}" readonly>
-        </div>
-        <button type="submit" class="btn btn-success">Confirmar</button>
-    </form>
-</div>
+<!-- Footer -->
+<footer>
+    Creado por: Paola Fernanda Ramírez Rauda, Cesia Aracely Raymundo Peraza, José Rolando Álvarez Mejía, Diego Enrique Canjura Estrada, Rodrigo Andrés López Orellana y Edgar Fernando López Zabaleta.
+</footer>
 
 <script th:src="@{/js/HacerCompra.js}"></script>
 
