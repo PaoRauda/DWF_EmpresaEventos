@@ -1,0 +1,80 @@
+/* Estilos para los botones */
+.btn {
+    font-size: 1.25rem;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #561e18;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #8d2f23;
+    color: #fff;
+}
+
+/* Estilos para el formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold; /* Hace que las etiquetas de los campos del formulario sean negritas */
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start; /* Alinea al inicio verticalmente */
+    padding-top: 20px;
+}
+
+/* Estilos para el área de la información de la compra */
+.informacion-compra, .agregar-compra {
+    background-color: #f22f08;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.informacion-compra {
+    margin-right: 20px; /* Agrega espacio entre el área de la información y el formulario */
+}
+
+.agregar-compra {
+    margin-left: 20px; /* Agrega espacio entre el área de la información y el formulario */
+    max-width: 400px; /* Ajusta el ancho máximo del formulario */
+}
+
+/* Ajuste adicional para garantizar que el footer esté en la parte inferior de la página */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}

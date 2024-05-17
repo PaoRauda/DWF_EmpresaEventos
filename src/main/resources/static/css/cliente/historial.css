@@ -1,0 +1,53 @@
+/* Estilos para la tabla */
+.table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table thead {
+    background-color: #f22f08; /* Cambio de color */
+    color: #ffffff; /* Texto en color blanco */
+}
+
+.table tbody tr:hover {
+    background-color: #561e18; /* Cambio de color */
+}
+
+/* Estilos para el contenedor principal */
+.container {
+    margin-top: 20px;
+}
+
+/* Estilos para los encabezados */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Asegura que el footer no se superponga con el contenido principal */
+}
+
+/* Ajuste adicional para garantizar que el footer esté en la parte inferior de la página */
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+}

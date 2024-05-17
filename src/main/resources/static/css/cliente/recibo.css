@@ -1,0 +1,68 @@
+/* Estilos para los botones */
+.btn {
+    font-size: 1.25rem;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #561e18;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #8d2f23;
+    color: #fff;
+}
+
+/* Estilos personalizados para la tarjeta */
+.custom-card {
+    background-color: #f22f08; /* Color de fondo personalizado */
+    color: white; /* Color del texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.custom-card .card-title,
+.custom-card .card-text {
+    color: white; /* Asegura que el texto dentro de la tarjeta sea blanco */
+    text-align: center; /* Centra el texto */
+}
+
+/* Centra el botón dentro de la tarjeta */
+.text-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Estilos para centrar la tarjeta y ajustar su ancho */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 60px); /* Altura mínima menos el footer */
+    padding: 20px;
+}
+
+.custom-card {
+    width: 100%;
+    max-width: 600px; /* Ajusta el ancho máximo de la tarjeta */
+}
+
+/* Estilos para el footer */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+}
