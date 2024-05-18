@@ -38,7 +38,7 @@
                 <!--Datos visibles-->
                 <div class="form-group">
                     <label for="cantidad">Cantidad:</label>
-                    <input type="number" class="form-control" id="cantidad" name="cantidad" th:field="*{cantidad}" th:max="${boleteria.getCantidad_disponible()}" oninput="calcularPrecioTotal()">
+                    <input type="number" class="form-control" id="cantidad" name="cantidad" th:field="*{cantidad}" th:min="1" th:max="${boleteria.getCantidad_disponible()}" oninput="calcularPrecioTotal()" required>
                 </div>
                 <div class="form-group">
                     <label for="precio_total">Precio Total:</label>
