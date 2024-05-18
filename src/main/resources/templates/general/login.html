@@ -7,16 +7,13 @@
     <!-- Bootstrap CSS -->
     <link href="../../static/css/bootstrap.css" rel="stylesheet"
           th:href="@{/css/bootstrap.css}">
+    <!-- Custom CSS -->
+    <link href="../../static/css/singup-styles.css" rel="stylesheet" th:href="@{/css/login-style.css}">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">EventosTicket</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</nav>
+<header>
+    <h2><a class="navbar-brand display-3" th:href="@{/}">EventosTicket</a></h2>
+</header>
 <br /><br />
 <div class="container">
     <div class="row">
@@ -73,5 +70,8 @@
         </div>
     </div>
 </div>
+<footer>
+    <p>Creado por: Paola Fernanda Ramírez Rauda, Cesia Aracely Raymundo Peraza, José Rolando Álvarez Mejía, Diego Enrique Canjura Estrada, Rodrigo Andrés López Orellana y Edgar Fernando López Zabaleta.</p>
+</footer>
 </body>
 </html>
