@@ -1,11 +1,11 @@
 /* Estilos para los botones */
 .btn {
-    font-size: 1.25rem;
-    padding: 10px 20px;
+    font-size: 1rem; /* Tamaño más limpio */
+    padding: 12px 24px; /* Aumento de padding para mejor usabilidad */
     margin: 10px;
     text-decoration: none;
     color: #fff;
-    background-color: #561e18;
+    background-color: #27ae60; /* Verde suave */
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -13,8 +13,7 @@
 }
 
 .btn:hover {
-    background-color: #8d2f23;
-    color: #fff;
+    background-color: #2ecc71; /* Verde más claro al pasar el mouse */
 }
 
 /* Estilos para el formulario */
@@ -23,18 +22,23 @@
 }
 
 label {
-    font-weight: bold; /* Hace que las etiquetas de los campos del formulario sean negritas */
+    font-weight: bold; /* Etiquetas en negrita */
+    color: #333; /* Color de texto oscuro */
 }
 
 /* Estilos para el footer */
 footer {
-    background-color: #343a40;
+    background-color: #4a90e2; /* Azul suave */
     color: #ffffff;
     padding: 10px;
     text-align: center;
-    position: fixed;
     width: 100%;
+    position: sticky; /* Hace que se quede al final, pero sin sobrepasar */
     bottom: 0;
+}
+
+footer a{
+    color: white;
 }
 
 /* Estilos para el contenedor principal */
@@ -43,24 +47,25 @@ footer {
     flex-direction: row;
     justify-content: center; /* Centra horizontalmente */
     align-items: flex-start; /* Alinea al inicio verticalmente */
-    padding-top: 20px;
+    padding: 20px;
 }
 
 /* Estilos para el área de la información de la compra */
 .informacion-compra, .agregar-compra {
-    background-color: #f22f08;
-    color: #ffffff;
+    background-color: #ffffff; /* Fondo blanco para claridad */
+    color: #333; /* Texto oscuro para mejor legibilidad */
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
 }
 
 .informacion-compra {
-    margin-right: 20px; /* Agrega espacio entre el área de la información y el formulario */
+    margin-right: 20px; /* Espacio entre la información y el formulario */
 }
 
 .agregar-compra {
-    margin-left: 20px; /* Agrega espacio entre el área de la información y el formulario */
-    max-width: 400px; /* Ajusta el ancho máximo del formulario */
+    margin-left: 20px; /* Espacio entre la información y el formulario */
+    max-width: 400px; /* Ancho máximo del formulario */
 }
 
 /* Ajuste adicional para garantizar que el footer esté en la parte inferior de la página */
@@ -77,4 +82,5 @@ body {
 
 main {
     flex: 1;
+    padding-bottom: 50px; /* Espacio reservado para el footer */
 }

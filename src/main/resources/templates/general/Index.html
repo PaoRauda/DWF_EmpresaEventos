@@ -7,6 +7,7 @@
     <link href="../../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
     <!-- Custom CSS -->
     <link href="../../static/css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
+    <link href="../../static/css/singup-styles.css" rel="stylesheet" th:href="@{/css/singup-styles.css}">
 </head>
 <body>
 <header class="text-center py-3">
@@ -16,6 +17,7 @@
     <h1>Bienvenido a EventosTicket</h1>
     <div class="container">
         <p>Bienvenido a tu plataforma favorita de eventos, acá podrás comprar tus entradas a los eventos que prefieras. Para empezar, inicia sesión o crea tu cuenta si aún no la tienes!</p>
+
         <div>
             <a th:href="@{/register}" class="btn">Registrate</a>
         </div>
@@ -25,9 +27,7 @@
     </div>
 </main>
 
-<footer class="footer">
-    Creado por: Paola Fernanda Ramírez Rauda, Cesia Aracely Raymundo Peraza, José Rolando Álvarez Mejía, Diego Enrique Canjura Estrada, Rodrigo Andrés López Orellana y Edgar Fernando López Zabaleta.
-</footer>
+<div th:replace="general/utils/footer :: footer"></div>
 
 </body>
 </html>

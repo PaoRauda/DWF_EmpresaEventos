@@ -16,33 +16,47 @@
     <br>
     <h2>Agregar Usuario</h2>
     <form action="#" th:action="@{/saveUsuario}" th:object="${usuario}" method="post">
-        <input type="hidden" th:field="*{id}" name="id" id="id">
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
-        </div>
-        <div class="form-group">
-            <label for="apellido">Apellido:</label>
-            <input type="text" class="form-control" id="apellido" name="apellido" th:field="*{apellido}">
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" th:field="*{email}">
-        </div>
-        <div class="form-group">
-            <label for="password">Contraseña:</label>
-            <input type="password" class="form-control" id="password" name="password" th:field="*{password}">
-        </div>
-        <div class="form-group">
-            <label for="direccion">Dirección:</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" th:field="*{direccion}">
-        </div>
-        <div class="form-group">
-            <label for="telefono">Teléfono:</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" th:field="*{telefono}">
-        </div>
-        <button type="submit" class="btn btn-success">Guardar</button>
-    </form>
+    <input type="hidden" th:field="*{id}" name="id" id="id">
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
+        <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input type="text" class="form-control" id="apellido" name="apellido" th:field="*{apellido}">
+        <div th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" class="text-danger"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" th:field="*{email}">
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input type="password" class="form-control" id="password" name="password" th:field="*{password}">
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" th:field="*{direccion}">
+        <div th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}" class="text-danger"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <input type="text" class="form-control" id="telefono" name="telefono" th:field="*{telefono}">
+        <div th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="text-danger"></div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+
 </div>
 </body>
 </html>

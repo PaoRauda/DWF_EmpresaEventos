@@ -7,10 +7,11 @@
     <!-- Bootstrap CSS -->
     <link href="../../static/css/bootstrap.css" rel="stylesheet"
           th:href="@{/css/bootstrap.css}">
+    <link href="../../static/css/cliente/recibo.css" rel="stylesheet" th:href="@{/css/cliente/recibo.css}">
 </head>
 <body>
 <div th:replace="general/utils/navbar :: navbar"></div>
-<div class="container">
+<div class="container mt-4">
     <h1>Acciones para Personal</h1>
     <a class="btn btn-info" th:href="@{/showCompra}">Gestionar Compras</a>
     <a class="btn btn-info" th:href="@{/showEvento}">Gestionar Eventos</a>

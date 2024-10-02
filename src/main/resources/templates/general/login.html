@@ -8,6 +8,7 @@
     <link href="../../static/css/bootstrap.css" rel="stylesheet"
           th:href="@{/css/bootstrap.css}">
     <!-- Custom CSS -->
+    <link href="../../static/css/singup-styles.css" rel="stylesheet" th:href="@{/css/styles.css}">
     <link href="../../static/css/singup-styles.css" rel="stylesheet" th:href="@{/css/login-style.css}">
 </head>
 <body>
@@ -15,7 +16,7 @@
     <h2><a class="navbar-brand display-3" th:href="@{/}">EventosTicket</a></h2>
 </header>
 <br /><br />
-<div class="container">
+<div class="container mb-lg-4">
     <div class="row">
         <div class="col-md-6 offset-md-3">
 
@@ -70,8 +71,6 @@
         </div>
     </div>
 </div>
-<footer>
-    <p>Creado por: Paola Fernanda Ramírez Rauda, Cesia Aracely Raymundo Peraza, José Rolando Álvarez Mejía, Diego Enrique Canjura Estrada, Rodrigo Andrés López Orellana y Edgar Fernando López Zabaleta.</p>
-</footer>
+<div th:replace="general/utils/footer :: footer"></div>
 </body>
 </html>

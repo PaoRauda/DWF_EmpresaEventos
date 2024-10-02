@@ -1,13 +1,13 @@
 package udb.edu.sv.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import udb.edu.sv.dao.model.Usuario;
 import udb.edu.sv.service.UsuarioService;
 import org.springframework.ui.Model;
@@ -27,16 +27,26 @@ public class UsuarioController {
 
     @GetMapping("/saveUsuario/{id}")
     public String showSave(@PathVariable("id") Long id, Model model) {
-        if (id != null && id != 0) {
-            model.addAttribute("usuario", usuarioService.get(id));
-        } else {
-            model.addAttribute("usuario", new Usuario());
+        if (!model.containsAttribute("usuario")) {
+            if (id != null && id != 0) {
+                model.addAttribute("usuario", usuarioService.get(id));
+            } else {
+
+                model.addAttribute("usuario", new Usuario());
+            }
         }
         return "empleado/usuario/save";
     }
 
     @PostMapping("/saveUsuario")
-    public String save(Usuario usuario, Model model) {
+    public String save(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result,  RedirectAttributes redirectAttributes) {
+
+        if (result.hasErrors()) {
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.usuario", result);
+            redirectAttributes.addFlashAttribute("usuario", usuario);
+            return "redirect:/saveUsuario/" + (usuario.getId() != null ? usuario.getId() : 0);
+        }
+
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(usuario.getPassword());
         usuario.setPassword(encodedPassword);

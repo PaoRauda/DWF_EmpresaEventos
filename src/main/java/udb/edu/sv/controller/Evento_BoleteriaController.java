@@ -1,13 +1,13 @@
 package udb.edu.sv.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import udb.edu.sv.dao.model.Evento_Boleteria;
 import udb.edu.sv.service.EventoService;
 import udb.edu.sv.service.Evento_BoleteriaService;
@@ -29,18 +29,29 @@ public class Evento_BoleteriaController {
 
     @GetMapping("/saveEvento_Boleteria/{id}")
     public String showSave(@PathVariable("id") Long id, Model model) {
-        if (id != null && id != 0) {
-            model.addAttribute("evento_boleteria", eventoBoleteriaService.get(id));
-            model.addAttribute("eventos", eventoService.getAll());
-        } else {
-            model.addAttribute("evento_boleteria", new Evento_Boleteria());
-            model.addAttribute("eventos", eventoService.getAll());
+        if (!model.containsAttribute("evento_boleteria")) {
+            if (id != null && id != 0) {
+                model.addAttribute("evento_boleteria", eventoBoleteriaService.get(id));
+            } else {
+                model.addAttribute("evento_boleteria", new Evento_Boleteria());
+            }
         }
+
+        model.addAttribute("eventos", eventoService.getAll());
+
         return "empleado/evento_boleteria/save";
     }
 
     @PostMapping("/saveEvento_Boleteria")
-    public String save(Evento_Boleteria evento_boleteria, Model model) {
+    public String save(@Valid @ModelAttribute("evento_boleteria") Evento_Boleteria evento_boleteria, BindingResult result, RedirectAttributes redirectAttributes) {
+
+        if (result.hasErrors()) {
+
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.evento_boleteria", result);
+            redirectAttributes.addFlashAttribute("evento_boleteria", evento_boleteria);
+            return "redirect:/saveEvento_Boleteria/" + (evento_boleteria.getId() != null ? evento_boleteria.getId() : 0);
+        }
+
         eventoBoleteriaService.save(evento_boleteria);
         return "redirect:/showEvento_Boleteria";
     }

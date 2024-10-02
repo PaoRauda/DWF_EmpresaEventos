@@ -1,4 +1,5 @@
 /* Estilos para la tabla */
+
 .table {
     width: 100%;
     margin: 0 auto;
@@ -7,12 +8,16 @@
 }
 
 .table thead {
-    background-color: #f22f08; /* Cambio de color */
-    color: #ffffff; /* Texto en color blanco */
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+.table tbody tr {
+    transition: background-color 0.3s;
 }
 
 .table tbody tr:hover {
-    background-color: #561e18; /* Cambio de color */
+    background-color: #d1e8ff;
 }
 
 /* Estilos para el contenedor principal */
@@ -24,19 +29,24 @@
 h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: #333;
 }
 
 /* Estilos para el footer */
-.footer {
-    background-color: #212027;
+footer {
+    margin-top: 5px;
+    background-color: #4a90e2;
     color: #ffffff;
     padding: 10px;
     text-align: center;
     box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Asegura que el footer no se superponga con el contenido principal */
+}
+footer a{
+    color: white;
 }
 
-/* Ajuste adicional para garantizar que el footer esté en la parte inferior de la página */
+
+
 html {
     height: 100%;
 }
@@ -46,6 +56,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 main {
@@ -54,12 +65,11 @@ main {
 
 /* Estilos para los botones */
 .btn {
-    font-size: 1.25rem;
-    padding: 10px 20px;
+    font-size: 1rem;
     margin: 10px;
     text-decoration: none;
     color: #fff;
-    background-color: #561e18;
+    background-color: #27ae60;
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -67,6 +77,5 @@ main {
 }
 
 .btn:hover {
-    background-color: #8d2f23;
-    color: #fff;
+    background-color: #2ecc71;
 }
